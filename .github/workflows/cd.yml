@@ -8,7 +8,7 @@ jobs:
       - name: 'Checkout'
         uses: 'actions/checkout@v1'
 
-      - name: 'Deploy'
+      # - name: 'Deploy'
         # Parameters are pulled directly from the GitHub deployment event so the
         # configuration for the job here is very minimal.
 
@@ -19,11 +19,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
-
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
-
 
     # - name: Build, tag, and push image to Amazon ECR
     #   id: build-image
@@ -38,12 +36,11 @@ jobs:
     #     docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
     #     echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
-
-      # uses: 'deliverybot/helm@master'
-      # with:
-      #   token: '${{ github.token }}'
-      #   secrets: '${{ toJSON(secrets) }}'
-      #   version: '${{ github.sha }}'
-      #   chart: 'app'
-      # env:
-      #   KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
+    # uses: 'deliverybot/helm@master'
+    # with:
+    #   token: '${{ github.token }}'
+    #   secrets: '${{ toJSON(secrets) }}'
+    #   version: '${{ github.sha }}'
+    #   chart: 'app'
+    # env:
+    #   KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
