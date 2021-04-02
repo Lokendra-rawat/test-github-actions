@@ -55,6 +55,7 @@ jobs:
       - name: 'helm install'
         uses: 'deliverybot/helm@master'
         with:
+          helm: helm3
           token: '${{ github.token }}'
           secrets: '${{ toJSON(secrets) }}'
           version: '${{ github.sha }}'
