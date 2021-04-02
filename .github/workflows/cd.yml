@@ -73,9 +73,11 @@ jobs:
     runs-on: 'ubuntu-latest'
     needs: deployment
     steps:
-      - name: 'helm install'
+      - name: Prep helm chart
         run: |
-          ls -la
+          ls
+
+      - name: 'helm install'
         uses: 'deliverybot/helm@master'
         with:
           helm: helm3
