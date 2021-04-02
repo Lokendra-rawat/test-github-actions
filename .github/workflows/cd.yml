@@ -59,6 +59,6 @@ jobs:
           token: '${{ github.token }}'
           secrets: '${{ toJSON(secrets) }}'
           version: '${{ github.sha }}'
-          chart: 'helm-github-actions'
+          chart: './helm-github-actions'
         env:
           KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
