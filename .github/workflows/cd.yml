@@ -74,8 +74,7 @@ jobs:
     needs: deployment
     steps:
       - name: Prep helm chart
-        run: |
-          ls
+        run: 'ls -la'
 
       - name: 'helm install'
         uses: 'deliverybot/helm@master'
