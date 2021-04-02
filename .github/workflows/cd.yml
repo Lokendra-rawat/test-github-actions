@@ -53,6 +53,7 @@ jobs:
 
   helmp:
     runs-on: 'ubuntu-latest'
+    needs: deployment
     steps:
       - uses: actions/checkout@v1
       - name: Prep helm chart
@@ -60,7 +61,7 @@ jobs:
           mv ./helm-github-actions/Chart.yaml ./helm-github-actions/Chart.old.yaml &&
           cat ./helm-github-actions/Chart.old.yaml | grep -v appVersion > ./helm-github-actions/Chart.yaml &&
           echo -e "\r\nappVersion: v${GITHUB_REF##*/}\r\n" >> ./helm-github-actions/Chart.yaml &&
-          cat ././Chart.yaml
+          cat ./Chart.yaml
       - name: Deploy
         uses: WyriHaximus/github-action-helm3@v2
         with:
