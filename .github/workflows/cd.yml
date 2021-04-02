@@ -74,6 +74,8 @@ jobs:
     needs: deployment
     steps:
       - name: 'helm install'
+        run: |
+          ls -la
         uses: 'deliverybot/helm@master'
         with:
           helm: helm3
