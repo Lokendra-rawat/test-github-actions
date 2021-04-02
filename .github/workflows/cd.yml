@@ -74,7 +74,7 @@ jobs:
     needs: deployment
     steps:
       - name: Prep helm chart
-        run: 'ls'
+        run: ls
 
       - name: 'helm install'
         uses: 'deliverybot/helm@master'
@@ -83,6 +83,6 @@ jobs:
           token: '${{ github.token }}'
           secrets: '${{ toJSON(secrets) }}'
           version: '${{ github.sha }}'
-          chart: '../../helm-github-actions/Chart.yaml'
+          chart: '/usr/src/helm-github-actions'
         env:
           KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
